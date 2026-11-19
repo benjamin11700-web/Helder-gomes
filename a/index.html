@@ -15,7 +15,7 @@
 :root{--loader-bg:#f2b705;--loader-fill:#c8201b;--loader-seam:rgba(22,25,27,.18);--jaune:#f2b705;--rouge:#c8201b;--ink:#16191b;--paper:#ffffff;--accent:#f2b705;--focus:#c8201b;--lb-radius:999px;--ml-radius:24px}
 body{font-family:Figtree,system-ui,sans-serif;color:var(--ink);background:var(--jaune);font-size:1.0625rem;line-height:1.55}
 .wrap{width:min(1240px,92vw);margin-inline:auto}
-.big{font-family:Anybody,sans-serif;font-style:italic;font-weight:900;font-stretch:68%;line-height:.88;letter-spacing:-.005em}
+.big{padding-inline:.06em;font-family:Anybody,sans-serif;font-style:italic;font-weight:900;font-stretch:68%;line-height:.88;letter-spacing:-.005em}
 h2.big{font-size:clamp(3rem,7vw,5.4rem);margin-bottom:2.2rem}
 .pill{display:inline-flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.08rem;padding:1rem 1.6rem;border-radius:999px;text-decoration:none;border:3px solid var(--ink);box-shadow:0 6px 0 var(--ink);transition:transform .15s,box-shadow .15s,background .2s;cursor:pointer}
 .pill:hover{transform:translateY(3px);box-shadow:0 3px 0 var(--ink)}
@@ -152,8 +152,23 @@ textarea{min-height:110px;resize:vertical}
 .steps li[data-anim].in::before{animation:pop .6s cubic-bezier(.3,1.8,.5,1) both}
 .steps li[data-anim-d="1"].in::before{animation-delay:.25s}.steps li[data-anim-d="2"].in::before{animation-delay:.35s}.steps li[data-anim-d="3"].in::before{animation-delay:.45s}
 @keyframes pop{from{transform:scale(0)}}
-h2.big[data-anim]{transform:translateX(-40px) skewX(-6deg)}
+h2.big[data-anim]{transform:translateY(30px) skewX(-6deg)}
 h2.big[data-anim].in{transform:none}
+body{overflow-x:clip}
+@media(max-width:600px){
+  .nav{min-height:64px;gap:.8rem}
+  .nav .logo{font-size:1.15rem;white-space:nowrap;gap:.5rem}
+  .nav .logo img{height:44px}
+  body.menu-open .nav ul{top:64px}
+  .menu-btn{padding:.5rem .9rem;font-size:.95rem}
+  h2.big{font-size:2.6rem;margin-bottom:1.6rem}
+  .steps li{padding:1.3rem 1.1rem 1.1rem}
+  .steps li::before{width:38px;height:38px;top:-19px;font-size:1.1rem}
+  .card div{padding:1rem 1.1rem 1.2rem}
+  footer{padding-bottom:84px}
+  .fab{padding:.75rem 1.2rem;font-size:1rem}
+}
+@media(max-width:380px){.nav .logo span{display:none}}
 footer{background:var(--ink);color:#c9ccce;font-size:.92rem}
 footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;padding:1.6rem 0}
 footer button{background:none;border:0;color:#fff;text-decoration:underline;cursor:pointer}
