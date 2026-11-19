@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../shared/base.css">
 <style>
-:root{--ardoise:#353c43;--nuit:#252a2f;--lin:#e9e4d8;--lin-2:#c9c4b8;--jaune:#f2b705;--rouge:#c8201b;--ink:#252a2f;--paper:#e9e4d8;--accent:#f2b705;--focus:#f2b705;--lb-radius:4px;--ml-radius:4px}
+:root{--loader-bg:#252a2f;--loader-fill:#f2b705;--loader-seam:rgba(233,228,216,.15);--ardoise:#353c43;--nuit:#252a2f;--lin:#e9e4d8;--lin-2:#c9c4b8;--jaune:#f2b705;--rouge:#c8201b;--ink:#252a2f;--paper:#e9e4d8;--accent:#f2b705;--focus:#f2b705;--lb-radius:4px;--ml-radius:4px}
 html{color-scheme:dark}
 body{font-family:Archivo,system-ui,sans-serif;background:var(--ardoise);color:var(--lin);font-size:1.0625rem;line-height:1.65}
 .wrap{width:min(1280px,90vw);margin-inline:auto}
@@ -105,7 +105,7 @@ header.solid{background:rgba(37,42,47,.95);backdrop-filter:blur(10px);box-shadow
 .mosa button{padding:0;border:0;background:var(--ardoise);cursor:zoom-in;overflow:hidden;position:relative}
 .mosa .big{grid-column:span 2;grid-row:span 2}
 .mosa .wide{grid-column:span 2}
-.mosa img{width:100%;height:100%;object-fit:cover;filter:saturate(.85);transition:transform 1.2s cubic-bezier(.2,.6,.2,1),filter .6s}
+.mosa img{width:100%;height:100%;object-fit:cover;filter:saturate(.85);transition:transform .3s ease-out,filter .6s}
 .mosa button:hover img{transform:scale(1.06);filter:saturate(1.05)}
 .mosa span{position:absolute;left:12px;bottom:10px;font-size:.88rem;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
 @media(max-width:800px){.mosa{grid-template-columns:1fr 1fr;grid-auto-rows:180px}}
@@ -123,6 +123,25 @@ textarea{min-height:90px;resize:vertical}
 .msg{grid-column:1/-1;color:var(--jaune);min-height:1.2em}
 @media(max-width:520px){form{grid-template-columns:1fr}}
 
+
+/* animations B */
+.mosa img,.ba img{transform:translateY(var(--py,0)) scale(1.12)}
+.mosa button:hover img{transform:translateY(var(--py,0)) scale(1.18)}
+.ba .after{clip-path:inset(0 0 0 var(--p,50%))}
+.frise::before{transform-origin:left;transform:scaleX(0);transition:transform 1.6s cubic-bezier(.65,0,.35,1)}
+.frise.in::before{transform:scaleX(1)}
+.frise li{opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}
+.frise.in li{opacity:1;transform:none}
+.frise li::before{transform:scale(0);transition:transform .5s cubic-bezier(.3,1.7,.5,1)}
+.frise.in li::before{transform:scale(1)}
+.frise.in li:nth-child(1),.frise.in li:nth-child(1)::before{transition-delay:.2s}
+.frise.in li:nth-child(2),.frise.in li:nth-child(2)::before{transition-delay:.6s}
+.frise.in li:nth-child(3),.frise.in li:nth-child(3)::before{transition-delay:1s}
+.frise.in li:nth-child(4),.frise.in li:nth-child(4)::before{transition-delay:1.4s}
+.list li{position:relative}
+.list li::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--jaune);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.list li:hover::after{transform:scaleX(1)}
+@media (prefers-reduced-motion:reduce){.frise li{opacity:1;transform:none}.frise::before{transform:none}}
 footer{border-top:3px solid var(--rouge);background:var(--nuit);color:#a9a49a;font-size:.9rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding:1.6rem 0}
 footer button{background:none;border:0;color:var(--lin);text-decoration:underline;cursor:pointer}
@@ -177,10 +196,10 @@ footer button{background:none;border:0;color:var(--lin);text-decoration:underlin
 <section class="pad" id="savoir-faire">
   <div class="wrap two">
     <div>
-      <h2>Un mur en pierre n’est jamais droit. Le vôtre le sera.</h2>
+      <h2 data-anim>Un mur en pierre n’est jamais droit. Le vôtre le sera.</h2>
       <p class="sub">Helder règle chaque ossature au laser devant la maçonnerie d’origine, pose l’isolant sans le tasser, puis traite les joints jusqu’à une surface que le peintre n’a plus qu’à recouvrir. La pierre que vous voulez garder apparente reste apparente.</p>
     </div>
-    <ul class="list">
+    <ul class="list" data-anim data-anim-d="2">
       <li><b>Doublage des murs</b><span>sur ossature ou collé</span></li>
       <li><b>Isolation intérieure</b><span>murs, rampants, plafonds</span></li>
       <li><b>Combles aménagés</b><span>rampants et jouées</span></li>
@@ -193,11 +212,11 @@ footer button{background:none;border:0;color:var(--lin);text-decoration:underlin
 
 <section class="pad deep" id="avant-apres">
   <div class="wrap">
-    <h2>La même pièce, quelques semaines plus tard</h2>
+    <h2 data-anim>La même pièce, quelques semaines plus tard</h2>
     <p class="sub">Faites glisser pour comparer. La lumière est restée, le froid est parti.</p>
-    <div class="ba" data-ba>
-      <img src="../photos/ossature-mur-pierre.jpg" alt="Avant : ossature devant le mur en pierre" width="1800" height="1350" loading="lazy">
-      <img class="after" src="../photos/piece-plaques-jointees.jpg" alt="Après : plaques jointées" width="1800" height="1350" loading="lazy">
+    <div class="ba" data-ba data-anim>
+      <img data-parallax="0.06" src="../photos/ossature-mur-pierre.jpg" alt="Avant : ossature devant le mur en pierre" width="1800" height="1350" loading="lazy">
+      <img data-parallax="0.06" class="after" src="../photos/piece-plaques-jointees.jpg" alt="Après : plaques jointées" width="1800" height="1350" loading="lazy">
       <span class="line"></span>
       <span class="tag t1">Avant</span><span class="tag t2">Après</span>
       <input type="range" min="0" max="100" value="50" aria-label="Glisser pour comparer avant et après">
@@ -208,8 +227,8 @@ footer button{background:none;border:0;color:var(--lin);text-decoration:underlin
 
 <section class="pad" id="methode">
   <div class="wrap">
-    <h2>Comment se passe un chantier</h2>
-    <ol class="frise">
+    <h2 data-anim>Comment se passe un chantier</h2>
+    <ol class="frise" data-draw>
       <li><h3>L’ossature</h3><p>Rails et fourrures réglés au laser, même quand le mur d’origine ne l’est pas.</p></li>
       <li><h3>L’isolation</h3><p>Laine posée sans tassement, pare-vapeur continu.</p></li>
       <li><h3>Les plaques</h3><p>Ajustées autour des fenêtres, des poutres et des escaliers.</p></li>
@@ -220,15 +239,15 @@ footer button{background:none;border:0;color:var(--lin);text-decoration:underlin
 
 <section class="pad deep" id="realisations">
   <div class="wrap">
-    <h2>Chantiers récents</h2>
-    <div class="mosa" data-gallery>
-      <button type="button" class="big" data-src="../photos/escalier-finition.jpg" data-cap="Cage d’escalier"><img src="../photos/escalier-finition.jpg" alt="Cage d’escalier" width="1800" height="1350" loading="lazy"><span>Cage d’escalier</span></button>
+    <h2 data-anim>Chantiers récents</h2>
+    <div class="mosa" data-gallery data-anim>
+      <button type="button" class="big" data-src="../photos/escalier-finition.jpg" data-cap="Cage d’escalier"><img data-parallax="0.08" src="../photos/escalier-finition.jpg" alt="Cage d’escalier" width="1800" height="1350" loading="lazy"><span>Cage d’escalier</span></button>
       <button type="button" data-src="../photos/doublage-pierre.jpg" data-cap="Doublage et pierre apparente"><img src="../photos/doublage-pierre.jpg" alt="Doublage et pierre apparente" width="1350" height="1800" loading="lazy"><span>Pierre apparente</span></button>
       <button type="button" data-src="../photos/isolation-rampants.jpg" data-cap="Isolation des rampants"><img src="../photos/isolation-rampants.jpg" alt="Isolation des rampants" width="1350" height="1800" loading="lazy"><span>Isolation</span></button>
       <button type="button" data-src="../photos/rampant-joints.jpg" data-cap="Rampant de combles"><img src="../photos/rampant-joints.jpg" alt="Rampant de combles" width="1800" height="1350" loading="lazy"><span>Combles</span></button>
       <button type="button" data-src="../photos/tremie-escalier.jpg" data-cap="Trémie d’escalier"><img src="../photos/tremie-escalier.jpg" alt="Trémie d’escalier" width="1800" height="1350" loading="lazy"><span>Trémie</span></button>
-      <button type="button" class="wide" data-src="../photos/mur-pierre-ouverture.jpg" data-cap="Ouverture dans un mur en pierre"><img src="../photos/mur-pierre-ouverture.jpg" alt="Ouverture dans un mur en pierre" width="1350" height="1800" loading="lazy"><span>Ouverture dans la pierre</span></button>
-      <button type="button" class="wide" data-src="../photos/cage-escalier.jpg" data-cap="Habillage d’escalier"><img src="../photos/cage-escalier.jpg" alt="Habillage d’escalier" width="1350" height="1800" loading="lazy"><span>Habillage d’escalier</span></button>
+      <button type="button" class="wide" data-src="../photos/mur-pierre-ouverture.jpg" data-cap="Ouverture dans un mur en pierre"><img data-parallax="0.08" src="../photos/mur-pierre-ouverture.jpg" alt="Ouverture dans un mur en pierre" width="1350" height="1800" loading="lazy"><span>Ouverture dans la pierre</span></button>
+      <button type="button" class="wide" data-src="../photos/cage-escalier.jpg" data-cap="Habillage d’escalier"><img data-parallax="0.08" src="../photos/cage-escalier.jpg" alt="Habillage d’escalier" width="1350" height="1800" loading="lazy"><span>Habillage d’escalier</span></button>
     </div>
   </div>
 </section>
@@ -236,7 +255,7 @@ footer button{background:none;border:0;color:var(--lin);text-decoration:underlin
 <section class="pad" id="contact">
   <div class="wrap two">
     <div>
-      <h2>Parlons de votre maison.</h2>
+      <h2 data-anim>Parlons de votre maison.</h2>
       <p class="sub">Helder vient voir le chantier, prend les mesures et vous laisse un devis gratuit et détaillé.</p>
       <a class="tel" href="tel:+33749898635">07 49 89 86 35</a>
       <p><a href="mailto:lejointdhelder@gmail.com">lejointdhelder@gmail.com</a><br><span style="color:var(--lin-2)">10 route de Keryeven, 29180 Guengat</span></p>

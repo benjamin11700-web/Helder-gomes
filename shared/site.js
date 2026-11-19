@@ -133,5 +133,32 @@
     m.textContent = `Votre messagerie s’ouvre avec la demande rédigée. Si rien ne s’ouvre, appelez le ${TEL}.`;
   }));
 
+
+  /* ---------- écran d'ouverture (couteau à enduire) ---------- */
+  if (!reduce && !sessionStorageSafe("loaderSeen")) {
+    const l = document.createElement("div"); l.className = "loader"; l.setAttribute("aria-hidden", "true");
+    l.innerHTML = '<div class="seam"></div><svg class="knife" viewBox="0 0 80 80"><path d="M10 34h60l-6 16H16z" fill="#d9dee1" stroke="#5b6368" stroke-width="2"/><rect x="34" y="50" width="12" height="22" rx="3" fill="#c8201b" stroke="#2d3337" stroke-width="2"/></svg>';
+    document.body.prepend(l); setTimeout(() => l.classList.add("gone"), 1600);
+  }
+  function sessionStorageSafe(k) { try { const v = sessionStorage.getItem(k); sessionStorage.setItem(k, "1"); return v; } catch (e) { return null; } }
+
+  /* ---------- apparitions au défilement ---------- */
+  const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  }), { threshold: .2, rootMargin: "0px 0px -8% 0px" }) : null;
+  document.querySelectorAll("[data-anim],[data-draw]").forEach(el => reduce || !io ? el.classList.add("in") : io.observe(el));
+
+  /* ---------- parallaxe légère (data-parallax="0.15") ---------- */
+  const par = [...document.querySelectorAll("[data-parallax]")];
+  if (par.length && !reduce) {
+    let ticking = false;
+    const upd = () => { const vh = innerHeight; par.forEach(el => {
+      const r = el.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return;
+      const k = +el.dataset.parallax || .12; el.style.setProperty("--py", ((r.top + r.height / 2 - vh / 2) * -k).toFixed(1) + "px");
+    }); ticking = false; };
+    addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+    addEventListener("resize", upd); upd();
+  }
+
   document.querySelectorAll("[data-year]").forEach(s => s.textContent = new Date().getFullYear());
 })();

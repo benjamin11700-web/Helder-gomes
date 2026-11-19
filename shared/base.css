@@ -37,3 +37,25 @@ dialog.ml .ml-x{position:absolute;top:14px;right:14px;width:44px;height:44px;bor
 dialog.ml .ml-x svg{width:18px;height:18px}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== Animations communes ===== */
+/* 1. Écran d'ouverture : un couteau à enduire lisse le joint, puis la page apparaît */
+.loader{position:fixed;inset:0;z-index:400;display:grid;place-items:center;background:var(--loader-bg,var(--paper));pointer-events:none;animation:loaderOut .5s 1s cubic-bezier(.7,0,.2,1) forwards}
+.loader .seam{position:relative;width:min(320px,70vw);height:14px;border-radius:7px;background:var(--loader-seam,rgba(0,0,0,.12));overflow:hidden}
+.loader .seam::after{content:"";position:absolute;inset:0;background:var(--loader-fill,var(--accent));transform-origin:left;transform:scaleX(0);animation:fillSeam .85s .1s cubic-bezier(.65,0,.35,1) forwards}
+.loader .knife{position:absolute;top:50%;left:calc(50% - min(160px,35vw));width:54px;height:54px;margin:-46px 0 0 -27px;animation:knifeGo .85s .1s cubic-bezier(.65,0,.35,1) forwards}
+@keyframes fillSeam{to{transform:scaleX(1)}}
+@keyframes knifeGo{to{transform:translateX(min(320px,70vw))}}
+@keyframes loaderOut{to{transform:translateY(-100%)}}
+.loader.gone{display:none}
+
+/* 2. Apparition au défilement (data-anim) */
+[data-anim]{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+[data-anim].in{opacity:1;transform:none}
+[data-anim-d="1"]{transition-delay:.1s}[data-anim-d="2"]{transition-delay:.2s}[data-anim-d="3"]{transition-delay:.3s}[data-anim-d="4"]{transition-delay:.4s}[data-anim-d="5"]{transition-delay:.5s}
+
+/* 3. Bouton d'appel mobile : petite vibration toutes les 10 secondes */
+.fab{animation:ring 10s 3s infinite}
+@keyframes ring{0%,6%,100%{transform:none}1%{transform:rotate(-8deg) scale(1.06)}2%{transform:rotate(8deg) scale(1.06)}3%{transform:rotate(-6deg) scale(1.06)}4%{transform:rotate(6deg) scale(1.04)}5%{transform:rotate(-2deg)}}
+
+@media (prefers-reduced-motion:reduce){.loader{display:none}[data-anim]{opacity:1;transform:none}}
