@@ -30,18 +30,21 @@
     let i = 0, busy = false, t, paused = reduce;
     slides[0].classList.add("is-active");
     const paint = () => { if (count) count.textContent = `${i + 1} / ${slides.length}`; };
+    let pending = null;
     function go(n, dir) {
-      if (busy || slides.length < 2) return;
+      if (slides.length < 2) return;
+      if (busy) { pending = [n, dir]; return; }
+      if (n === "+1") n = i + 1; else if (n === "-1") n = i - 1; /* clic pendant une transition : on l'enchaîne juste après */
       n = (n + slides.length) % slides.length; if (n === i) return;
       busy = true; root.dataset.dir = dir > 0 ? "next" : "prev";
       const old = slides[i]; i = n; const nw = slides[i];
       old.classList.remove("is-active"); old.classList.add("is-leaving");
       void nw.offsetWidth; nw.classList.add("is-active"); paint();
-      setTimeout(() => { old.classList.remove("is-leaving"); busy = false; }, reduce ? 0 : DUR);
+      setTimeout(() => { old.classList.remove("is-leaving"); busy = false; if (pending) { const q = pending; pending = null; go(q[0], q[1]); } }, reduce ? 0 : DUR);
       schedule();
     }
     function schedule() { clearTimeout(t); if (!paused) t = setTimeout(() => go(i + 1, 1), DELAY); }
-    const next = () => go(i + 1, 1), prev = () => go(i - 1, -1);
+    const next = () => busy ? (pending = ["+1", 1]) : go(i + 1, 1), prev = () => busy ? (pending = ["-1", -1]) : go(i - 1, -1);
     scope.querySelector("[data-next]")?.addEventListener("click", next);
     scope.querySelector("[data-prev]")?.addEventListener("click", prev);
     if (pauseBtn) {

@@ -168,7 +168,7 @@ body{overflow-x:clip}
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a class="btn btn-dark" href="tel:+33749898635">07 49 89 86 35</a>
-    <button class="menu-btn" data-menu aria-expanded="false">Menu</button>
+    <button type="button" class="menu-btn" data-menu aria-expanded="false">Menu</button>
   </div>
 </header>
 
@@ -186,7 +186,7 @@ body{overflow-x:clip}
       </div>
     </div>
     <div data-slider-scope>
-      <div class="panel" data-slider data-duration="1300" aria-roledescription="carrousel" aria-label="Photos de chantiers">
+      <div role="region" class="panel" data-slider data-duration="1300" aria-roledescription="carrousel" aria-label="Photos de chantiers">
         <figure class="slide" data-img="../photos/escalier-finition-1200.webp" data-alt="Cage d’escalier rénovée"><figcaption aria-hidden="true">Cage d’escalier</figcaption></figure>
         <figure class="slide" data-img="../photos/rampant-joints-1200.webp" data-alt="Rampant de combles jointé"><figcaption aria-hidden="true">Combles</figcaption></figure>
         <figure class="slide" data-img="../photos/piece-plaques-jointees-1200.webp" data-alt="Pièce de vie aux bandes terminées"><figcaption aria-hidden="true">Bandes terminées</figcaption></figure>
@@ -246,13 +246,13 @@ body{overflow-x:clip}
   <div class="wrap">
     <h2 data-draw>Photos de chantier</h2>
     <div class="photos" data-gallery data-anim>
-      <button type="button" class="w2" data-src="../photos/piece-plaques-jointees-1200.webp" data-cap="Pièce de vie"><img src="../photos/piece-plaques-jointees-1200.webp" srcset="../photos/piece-plaques-jointees-600.webp 600w, ../photos/piece-plaques-jointees-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Pièce de vie aux plaques jointées" width="1800" height="1350" loading="lazy"></button>
-      <button type="button" data-src="../photos/doublage-pierre-1200.webp" data-cap="Doublage et pierre apparente"><img src="../photos/doublage-pierre-1200.webp" srcset="../photos/doublage-pierre-600.webp 600w, ../photos/doublage-pierre-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Doublage et pierre apparente" width="1350" height="1800" loading="lazy"></button>
-      <button type="button" data-src="../photos/isolation-rampants-1200.webp" data-cap="Isolation des rampants"><img src="../photos/isolation-rampants-1200.webp" srcset="../photos/isolation-rampants-600.webp 600w, ../photos/isolation-rampants-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Isolation des rampants" width="1350" height="1800" loading="lazy"></button>
-      <button type="button" class="w2" data-src="../photos/ossature-mur-pierre-1200.webp" data-cap="Ossature sur mur pierre"><img src="../photos/ossature-mur-pierre-1200.webp" srcset="../photos/ossature-mur-pierre-600.webp 600w, ../photos/ossature-mur-pierre-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Ossature devant un mur en pierre" width="1800" height="1350" loading="lazy"></button>
-      <button type="button" data-src="../photos/tremie-escalier-1200.webp" data-cap="Trémie d’escalier"><img src="../photos/tremie-escalier-1200.webp" srcset="../photos/tremie-escalier-600.webp 600w, ../photos/tremie-escalier-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Trémie d’escalier" width="1800" height="1350" loading="lazy"></button>
-      <button type="button" data-src="../photos/cage-escalier-1200.webp" data-cap="Habillage d’escalier"><img src="../photos/cage-escalier-1200.webp" srcset="../photos/cage-escalier-600.webp 600w, ../photos/cage-escalier-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Habillage d’escalier" width="1350" height="1800" loading="lazy"></button>
-      <button type="button" data-src="../photos/combles-joints-1200.webp" data-cap="Jouée de combles"><img src="../photos/combles-joints-1200.webp" srcset="../photos/combles-joints-600.webp 600w, ../photos/combles-joints-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Jouée de combles" width="1800" height="1350" loading="lazy"></button>
+      <button type="button" class="w2" data-src="../photos/piece-plaques-jointees-1200.webp" data-cap="Pièce de vie" aria-label="Agrandir la photo : Pièce de vie"><img src="../photos/piece-plaques-jointees-1200.webp" srcset="../photos/piece-plaques-jointees-600.webp 600w, ../photos/piece-plaques-jointees-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Pièce de vie aux plaques jointées" width="1800" height="1350" loading="lazy"></button>
+      <button type="button" data-src="../photos/doublage-pierre-1200.webp" data-cap="Doublage et pierre apparente" aria-label="Agrandir la photo : Doublage et pierre apparente"><img src="../photos/doublage-pierre-1200.webp" srcset="../photos/doublage-pierre-600.webp 600w, ../photos/doublage-pierre-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Doublage et pierre apparente" width="1350" height="1800" loading="lazy"></button>
+      <button type="button" data-src="../photos/isolation-rampants-1200.webp" data-cap="Isolation des rampants" aria-label="Agrandir la photo : Isolation des rampants"><img src="../photos/isolation-rampants-1200.webp" srcset="../photos/isolation-rampants-600.webp 600w, ../photos/isolation-rampants-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Isolation des rampants" width="1350" height="1800" loading="lazy"></button>
+      <button type="button" class="w2" data-src="../photos/ossature-mur-pierre-1200.webp" data-cap="Ossature sur mur pierre" aria-label="Agrandir la photo : Ossature sur mur pierre"><img src="../photos/ossature-mur-pierre-1200.webp" srcset="../photos/ossature-mur-pierre-600.webp 600w, ../photos/ossature-mur-pierre-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Ossature devant un mur en pierre" width="1800" height="1350" loading="lazy"></button>
+      <button type="button" data-src="../photos/tremie-escalier-1200.webp" data-cap="Trémie d’escalier" aria-label="Agrandir la photo : Trémie d’escalier"><img src="../photos/tremie-escalier-1200.webp" srcset="../photos/tremie-escalier-600.webp 600w, ../photos/tremie-escalier-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Trémie d’escalier" width="1800" height="1350" loading="lazy"></button>
+      <button type="button" data-src="../photos/cage-escalier-1200.webp" data-cap="Habillage d’escalier" aria-label="Agrandir la photo : Habillage d’escalier"><img src="../photos/cage-escalier-1200.webp" srcset="../photos/cage-escalier-600.webp 600w, ../photos/cage-escalier-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Habillage d’escalier" width="1350" height="1800" loading="lazy"></button>
+      <button type="button" data-src="../photos/combles-joints-1200.webp" data-cap="Jouée de combles" aria-label="Agrandir la photo : Jouée de combles"><img src="../photos/combles-joints-1200.webp" srcset="../photos/combles-joints-600.webp 600w, ../photos/combles-joints-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Jouée de combles" width="1800" height="1350" loading="lazy"></button>
     </div>
   </div>
 </section>
@@ -266,9 +266,9 @@ body{overflow-x:clip}
       <p><a href="mailto:lejointdhelder@gmail.com">lejointdhelder@gmail.com</a><br><span style="color:#c9ccce">10 route de Keryeven, 29180 Guengat</span></p>
     </div>
     <form data-devis novalidate>
-      <div><label for="c-nom">Votre nom</label><input id="c-nom" name="nom" autocomplete="name"></div>
+      <div><label for="c-nom">Votre nom</label><input type="text" id="c-nom" name="nom" autocomplete="name"></div>
       <div><label for="c-tel">Votre téléphone</label><input id="c-tel" name="tel" type="tel" autocomplete="tel"></div>
-      <div><label for="c-ville">Commune</label><input id="c-ville" name="ville" autocomplete="address-level2"></div>
+      <div><label for="c-ville">Commune</label><input type="text" id="c-ville" name="ville" autocomplete="address-level2"></div>
       <div><label for="c-type">Travaux</label><select id="c-type" name="type"><option>Cloisons</option><option>Doublage ou isolation</option><option>Combles</option><option>Faux plafond</option><option>Bandes et enduits</option><option>Rénovation complète</option></select></div>
       <div class="full"><label for="c-msg">Votre projet</label><textarea id="c-msg" name="msg" placeholder="Ex. : refaire les bandes d’un séjour de 35 m²…"></textarea></div>
       <div class="full"><button class="btn btn-dark" type="submit">Préparer l’email de demande</button></div>
