@@ -8,6 +8,7 @@
 <meta property="og:title" content="Le Joint d'Helder – Placo & joints, c'est du béton !">
 <meta property="og:description" content="Plaquiste à Guengat et alentours : cloisons, isolation, combles, bandes et enduits.">
 <meta property="og:image" content="photos/escalier-finition.jpg">
+<meta name="theme-color" content="#e3e2dd">
 <link rel="icon" href="photos/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +41,11 @@ img{display:block;max-width:100%}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--encre);outline-offset:3px;border-radius:4px}
 .wrap{width:var(--w);margin-inline:auto}
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--anthra);color:var(--jaune);padding:.7rem 1rem;border-radius:6px;font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+h1,h2,h3{text-wrap:balance}
+a,button,input,select,textarea,label{touch-action:manipulation;-webkit-tap-highlight-color:rgba(242,183,5,.25)}
+@media (pointer:fine){html{overscroll-behavior:none}}
 .display{font-weight:800;font-variation-settings:"wdth" 75,"opsz" 96;line-height:.92;letter-spacing:-.01em}
 h2.display{font-size:clamp(2.6rem,6.2vw,5rem);max-width:16ch}
 .intro{max-width:56ch;color:var(--anthra-2);font-size:1.12rem;margin-top:1.1rem}
@@ -108,10 +114,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(227,226,221,.94);backdro
 .blade::after{content:"";position:absolute;right:12px;top:0;bottom:0;width:80px;
   background:linear-gradient(90deg,rgba(251,250,246,0),rgba(251,250,246,.85) 70%,#fbfaf6)}
 .knife-ui{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;gap:1rem}
-.knife-ui .count{font-weight:700;font-variation-settings:"wdth" 75;font-size:1.1rem}
+.knife-ui .count{font-variant-numeric:tabular-nums;font-weight:700;font-variation-settings:"wdth" 75;font-size:1.1rem}
 .knife-ui .count b{font-size:1.6rem}
 .knife-ui .arrows{display:flex;gap:.5rem}
-.sq{width:48px;height:48px;border-radius:6px;border:2px solid var(--anthra);background:transparent;cursor:pointer;display:grid;place-items:center;color:var(--anthra);transition:background .2s,color .2s}
+.sq{width:48px;height:48px;flex:none;border-radius:6px;border:2px solid var(--anthra);background:transparent;cursor:pointer;display:grid;place-items:center;color:var(--anthra);transition:background .2s,color .2s}
 .sq:hover{background:var(--anthra);color:var(--jaune)}
 .sq svg{width:20px;height:20px}
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr}.knife{aspect-ratio:4/4.3}}
@@ -162,7 +168,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(227,226,221,.94);backdro
 .gal button:hover img{transform:scale(1.03)}
 .gal span{position:absolute;left:.7rem;bottom:.7rem;background:var(--enduit);color:var(--anthra);font-weight:600;font-size:.88rem;padding:.25rem .6rem;border-radius:3px}
 
-.lb{position:fixed;inset:0;z-index:100;background:rgba(29,33,36,.97);display:none;align-items:center;justify-content:center;flex-direction:column;gap:1rem;padding:4vw}
+.lb{overscroll-behavior:contain;position:fixed;inset:0;z-index:100;background:rgba(29,33,36,.97);display:none;align-items:center;justify-content:center;flex-direction:column;gap:1rem;padding:4vw}
 .lb.open{display:flex}
 .lb .knife{width:min(1100px,100%);aspect-ratio:auto;height:min(78vh,820px);background:transparent;box-shadow:none}
 .lb .knife .pic img{object-fit:contain}
@@ -180,7 +186,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(227,226,221,.94);backdro
 /* ---------- contact ---------- */
 .contact{background:var(--enduit);background-image:none}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
-.bigtel{display:block;white-space:nowrap;font-weight:800;font-variation-settings:"wdth" 75;font-size:clamp(2.6rem,5.2vw,4.6rem);line-height:1;text-decoration:none;margin:1.4rem 0 .4rem;color:var(--anthra)}
+.bigtel{font-variant-numeric:tabular-nums;display:block;white-space:nowrap;font-weight:800;font-variation-settings:"wdth" 75;font-size:clamp(2.6rem,5.2vw,4.6rem);line-height:1;text-decoration:none;margin:1.4rem 0 .4rem;color:var(--anthra)}
 .bigtel:hover{color:var(--rouge)}
 .coords{list-style:none;margin-top:1.8rem;display:grid;gap:.9rem}
 .coords li{display:flex;gap:.8rem;align-items:flex-start}
@@ -209,7 +215,7 @@ footer{background:var(--anthra);color:#c9ccce;padding:3rem 0 2rem;font-size:.95r
 @media(max-width:760px){.foot{grid-template-columns:1fr}.foot nav{text-align:left}.foot nav a,.foot nav button{text-align:left}}
 
 /* ---------- mentions légales ---------- */
-dialog{border:0;border-radius:6px;max-width:680px;width:92vw;padding:clamp(1.4rem,4vw,2.6rem);background:var(--enduit);color:var(--anthra);border-top:6px solid var(--rouge)}
+dialog{overscroll-behavior:contain;border:0;border-radius:6px;max-width:680px;width:92vw;padding:clamp(1.4rem,4vw,2.6rem);background:var(--enduit);color:var(--anthra);border-top:6px solid var(--rouge)}
 dialog::backdrop{background:rgba(29,33,36,.75)}
 dialog h2{font-weight:800;font-variation-settings:"wdth" 80;font-size:2rem;margin-bottom:.6rem}
 dialog h3{font-size:1.05rem;margin:1.2rem 0 .3rem}
@@ -224,12 +230,13 @@ dialog .sq{position:absolute;top:14px;right:14px;width:42px;height:42px}
 </style>
 </head>
 <body>
+<a class="skip" href="#contenu">Aller au contenu</a>
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top" aria-label="Le Joint d'Helder, accueil">
+    <a class="brand" href="#top" aria-label="Le Joint d’Helder, accueil">
       <img src="photos/logo.png" alt="" width="69" height="58">
-      <div><strong>Le Joint d'Helder</strong><span>Plaquiste à Guengat</span></div>
+      <div><strong translate="no">Le Joint d’Helder</strong><span>Plaquiste à Guengat</span></div>
     </a>
     <ul id="menu">
       <li><a href="#prestations">Prestations</a></li>
@@ -238,23 +245,23 @@ dialog .sq{position:absolute;top:14px;right:14px;width:42px;height:42px}
       <li><a href="#chantiers">Chantiers</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a class="btn btn-call js-tel" href="tel:+33749898635"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg><span class="js-tel-txt">07 49 89 86 35</span></a>
+    <a class="btn btn-call js-tel" href="tel:+33749898635"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg><span class="js-tel-txt">07 49 89 86 35</span></a>
     <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
   </div>
 </header>
 
-<main id="top">
+<main id="top"><span id="contenu" tabindex="-1"></span>
 <!-- ================= HÉRO ================= -->
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <h1 class="display"><span class="l"><span>Des murs droits.</span></span><span class="l"><span>Des joints</span></span><span class="l"><span>qu'on ne voit pas.</span></span></h1>
-      <p class="pitch">Helder pose vos cloisons, doublages, isolation et faux plafonds, puis fait les bandes jusqu'à une surface prête à peindre. Dans le neuf comme dans les vieilles maisons en pierre.</p>
+      <h1 class="display"><span class="l"><span>Des murs droits.</span></span><span class="l"><span>Des joints</span></span><span class="l"><span>qu’on ne voit pas.</span></span></h1>
+      <p class="pitch">Helder pose vos cloisons, doublages, isolation et faux plafonds, puis fait les bandes jusqu’à une surface prête à peindre. Dans le neuf comme dans les vieilles maisons en pierre.</p>
       <div class="ctas">
-        <a class="btn btn-call js-tel" href="tel:+33749898635"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg>Appeler Helder</a>
+        <a class="btn btn-call js-tel" href="tel:+33749898635"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg>Appeler Helder</a>
         <a class="btn btn-line" href="#contact">Demander un devis gratuit</a>
       </div>
-      <p class="where"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-6 8-12a8 8 0 10-16 0c0 6 8 12 8 12z"/><circle cx="12" cy="10" r="3"/></svg>Basé à Guengat, intervient dans le Finistère</p>
+      <p class="where"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-6 8-12a8 8 0 10-16 0c0 6 8 12 8 12z"/><circle cx="12" cy="10" r="3"/></svg>Basé à Guengat, intervient dans le Finistère</p>
     </div>
 
     <div>
@@ -262,8 +269,9 @@ dialog .sq{position:absolute;top:14px;right:14px;width:42px;height:42px}
       <div class="knife-ui">
         <p class="count" aria-live="polite"><b id="heroNum">1</b> / <span id="heroTot">5</span></p>
         <div class="arrows">
-          <button class="sq" id="heroPrev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button>
-          <button class="sq" id="heroNext" aria-label="Photo suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
+          <button class="sq" id="heroPause" aria-label="Mettre le défilement en pause" aria-pressed="false"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button>
+          <button class="sq" id="heroPrev" aria-label="Photo précédente"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button class="sq" id="heroNext" aria-label="Photo suivante"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
         </div>
       </div>
     </div>
@@ -275,15 +283,15 @@ dialog .sq{position:absolute;top:14px;right:14px;width:42px;height:42px}
 <!-- ================= PRESTATIONS ================= -->
 <section class="sec" id="prestations">
   <div class="wrap">
-    <h2 class="display">Ce qu'Helder fait chez vous</h2>
-    <p class="intro">Tout le travail de la plaque de plâtre, de l'ossature jusqu'à la dernière couche d'enduit. Un seul artisan du début à la fin.</p>
+    <h2 class="display">Ce qu’Helder fait chez vous</h2>
+    <p class="intro">Tout le travail de la plaque de plâtre, de l’ossature jusqu’à la dernière couche d’enduit. Un seul artisan du début à la fin.</p>
     <div class="lines">
-      <article class="line"><h3>Cloisons</h3><p>Créer une chambre, fermer un bureau, redistribuer un étage. Plaques phoniques ou hydrofuges selon la pièce.</p><img src="photos/cage-escalier.jpg" alt="Cloisons en plaques autour d'une cage d'escalier" loading="lazy"></article>
-      <article class="line"><h3>Doublage des murs</h3><p>Sur ossature ou collé, avec ou sans isolant. Adapté aux murs en pierre qui ne sont jamais droits.</p><img src="photos/ossature-mur-pierre.jpg" alt="Ossature métallique devant un mur en pierre" loading="lazy"></article>
-      <article class="line"><h3>Isolation intérieure</h3><p>Laine minérale et pare-vapeur sur les murs, les rampants et les plafonds, pour gagner en confort et sur la facture de chauffage.</p><img src="photos/isolation-rampants.jpg" alt="Laine minérale posée entre les chevrons" loading="lazy"></article>
-      <article class="line"><h3>Combles aménagés</h3><p>Rampants, jouées et plafonds pour transformer des combles en vraies pièces à vivre.</p><img src="photos/rampant-joints.jpg" alt="Rampant de combles en plaques jointées" loading="lazy"></article>
-      <article class="line"><h3>Faux plafonds et trémies</h3><p>Plafonds suspendus, coffrages, habillage autour des escaliers et passage des spots.</p><img src="photos/tremie-escalier.jpg" alt="Trémie d'escalier habillée en plaques" loading="lazy"></article>
-      <article class="line"><h3>Bandes et enduits</h3><p>Le métier qui a donné son nom à l'entreprise : des joints, des angles et des embrasures lisses, prêts pour le peintre.</p><img src="photos/piece-plaques-jointees.jpg" alt="Pièce aux plaques jointées" loading="lazy"></article>
+      <article class="line"><h3>Cloisons</h3><p>Créer une chambre, fermer un bureau, redistribuer un étage. Plaques phoniques ou hydrofuges selon la pièce.</p><img width="1350" height="1800" src="photos/cage-escalier.jpg" alt="Cloisons en plaques autour d’une cage d’escalier" loading="lazy"></article>
+      <article class="line"><h3>Doublage des murs</h3><p>Sur ossature ou collé, avec ou sans isolant. Adapté aux murs en pierre qui ne sont jamais droits.</p><img width="1800" height="1350" src="photos/ossature-mur-pierre.jpg" alt="Ossature métallique devant un mur en pierre" loading="lazy"></article>
+      <article class="line"><h3>Isolation intérieure</h3><p>Laine minérale et pare-vapeur sur les murs, les rampants et les plafonds, pour gagner en confort et sur la facture de chauffage.</p><img width="1350" height="1800" src="photos/isolation-rampants.jpg" alt="Laine minérale posée entre les chevrons" loading="lazy"></article>
+      <article class="line"><h3>Combles aménagés</h3><p>Rampants, jouées et plafonds pour transformer des combles en vraies pièces à vivre.</p><img width="1800" height="1350" src="photos/rampant-joints.jpg" alt="Rampant de combles en plaques jointées" loading="lazy"></article>
+      <article class="line"><h3>Faux plafonds et trémies</h3><p>Plafonds suspendus, coffrages, habillage autour des escaliers et passage des spots.</p><img width="1800" height="1350" src="photos/tremie-escalier.jpg" alt="Trémie d’escalier habillée en plaques" loading="lazy"></article>
+      <article class="line"><h3>Bandes et enduits</h3><p>Le métier qui a donné son nom à l’entreprise : des joints, des angles et des embrasures lisses, prêts pour le peintre.</p><img width="1800" height="1350" src="photos/piece-plaques-jointees.jpg" alt="Pièce aux plaques jointées" loading="lazy"></article>
     </div>
   </div>
 </section>
@@ -294,12 +302,12 @@ dialog .sq{position:absolute;top:14px;right:14px;width:42px;height:42px}
     <div class="ba-head">
       <div>
         <h2 class="display">La même pièce, quelques semaines plus tard</h2>
-        <p class="intro">Faites glisser le couteau pour comparer. À gauche, l'ossature posée contre le mur en pierre. À droite, les plaques jointées : la lumière est restée, le froid est parti.</p>
+        <p class="intro">Faites glisser le couteau pour comparer. À gauche, l’ossature posée contre le mur en pierre. À droite, les plaques jointées : la lumière est restée, le froid est parti.</p>
       </div>
     </div>
     <div class="ba" id="ba">
-      <img src="photos/ossature-mur-pierre.jpg" alt="Avant : mur en pierre avec ossature métallique">
-      <img class="after" src="photos/piece-plaques-jointees.jpg" alt="Après : murs et plafond en plaques jointées">
+      <img width="1800" height="1350" src="photos/ossature-mur-pierre.jpg" alt="Avant : mur en pierre avec ossature métallique">
+      <img width="1800" height="1350" class="after" src="photos/piece-plaques-jointees.jpg" alt="Après : murs et plafond en plaques jointées">
       <span class="tag b">Avant</span><span class="tag a">Après</span>
       <input type="range" min="0" max="100" value="50" aria-label="Comparer avant et après">
       <div class="tool"><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M10 34h60l-6 16H16z" fill="#d9dee1" stroke="#5b6368" stroke-width="2"/><rect x="34" y="50" width="12" height="22" rx="3" fill="#c8201b" stroke="#2d3337" stroke-width="2"/><path d="M26 42l-6 4M60 42l-6 4" stroke="#5b6368" stroke-width="2" stroke-linecap="round"/><path d="M33 26l-6 4 6 4M47 26l6 4-6 4" fill="none" stroke="#f2b705" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -311,12 +319,12 @@ dialog .sq{position:absolute;top:14px;right:14px;width:42px;height:42px}
 <section class="sec" id="methode">
   <div class="wrap">
     <h2 class="display">Comment se passe un chantier</h2>
-    <p class="intro">Toujours les mêmes quatre étapes, dans le même ordre. C'est ce qui donne des murs droits et des joints invisibles.</p>
+    <p class="intro">Toujours les mêmes quatre étapes, dans le même ordre. C’est ce qui donne des murs droits et des joints invisibles.</p>
     <div class="steps">
-      <div class="step"><figure><img src="photos/ossature-mur-pierre.jpg" alt="Ossature métallique alignée" loading="lazy"></figure><h3>L'ossature</h3><p>Rails et fourrures réglés au laser, même quand le mur d'origine ne l'est pas.</p></div>
-      <div class="step"><figure><img src="photos/isolation-rampants.jpg" alt="Isolation des rampants" loading="lazy"></figure><h3>L'isolation</h3><p>Laine posée sans tassement et pare-vapeur continu, pour éviter les ponts thermiques.</p></div>
-      <div class="step"><figure><img src="photos/cage-escalier-haut.jpg" alt="Plaques vissées dans une cage d'escalier" loading="lazy"></figure><h3>Les plaques</h3><p>Vissées et ajustées autour des fenêtres, des poutres et des escaliers.</p></div>
-      <div class="step"><figure><img src="photos/combles-joints.jpg" alt="Bandes et enduit sur un rampant" loading="lazy"></figure><h3>Les bandes</h3><p>Bande, enduit, ponçage. Le mur est prêt à peindre.</p></div>
+      <div class="step"><figure><img width="1800" height="1350" src="photos/ossature-mur-pierre.jpg" alt="Ossature métallique alignée" loading="lazy"></figure><h3>L’ossature</h3><p>Rails et fourrures réglés au laser, même quand le mur d’origine ne l’est pas.</p></div>
+      <div class="step"><figure><img width="1350" height="1800" src="photos/isolation-rampants.jpg" alt="Isolation des rampants" loading="lazy"></figure><h3>L’isolation</h3><p>Laine posée sans tassement et pare-vapeur continu, pour éviter les ponts thermiques.</p></div>
+      <div class="step"><figure><img width="1350" height="1800" src="photos/cage-escalier-haut.jpg" alt="Plaques vissées dans une cage d’escalier" loading="lazy"></figure><h3>Les plaques</h3><p>Vissées et ajustées autour des fenêtres, des poutres et des escaliers.</p></div>
+      <div class="step"><figure><img width="1800" height="1350" src="photos/combles-joints.jpg" alt="Bandes et enduit sur un rampant" loading="lazy"></figure><h3>Les bandes</h3><p>Bande, enduit, ponçage. Le mur est prêt à peindre.</p></div>
     </div>
   </div>
 </section>
@@ -327,7 +335,7 @@ dialog .sq{position:absolute;top:14px;right:14px;width:42px;height:42px}
 <section class="sec" id="chantiers">
   <div class="wrap">
     <h2 class="display">Des chantiers récents</h2>
-    <p class="intro">Des photos prises sur place, en cours de travaux. Touchez une photo pour l'agrandir.</p>
+    <p class="intro">Des photos prises sur place, en cours de travaux. Touchez une photo pour l’agrandir.</p>
     <div class="gal" id="gal"></div>
   </div>
 </section>
@@ -335,21 +343,21 @@ dialog .sq{position:absolute;top:14px;right:14px;width:42px;height:42px}
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo agrandie">
   <div class="knife" id="lbKnife"></div>
   <div class="lb-bar">
-    <button class="sq" id="lbPrev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="sq" id="lbPrev" aria-label="Photo précédente"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button>
     <span class="lb-cap" id="lbCap"></span>
-    <button class="sq" id="lbNext" aria-label="Photo suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
-    <button class="sq" id="lbClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <button class="sq" id="lbNext" aria-label="Photo suivante"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button class="sq" id="lbClose" aria-label="Fermer"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
 </div>
 
-<!-- ================= AVIS (s'affiche quand CONFIG.avis est rempli) ================= -->
+<!-- ================= AVIS (s’affiche quand CONFIG.avis est rempli) ================= -->
 <section class="sec avis" id="avis" hidden>
   <div class="wrap">
-    <h2 class="display">Ce qu'en disent les clients</h2>
+    <h2 class="display">Ce qu’en disent les clients</h2>
     <div id="avisBox"></div>
     <div class="nav-avis">
-      <button class="sq" id="avPrev" aria-label="Avis précédent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button>
-      <button class="sq" id="avNext" aria-label="Avis suivant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
+      <button class="sq" id="avPrev" aria-label="Avis précédent"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button class="sq" id="avNext" aria-label="Avis suivant"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
   </div>
 </section>
@@ -362,9 +370,9 @@ dialog .sq{position:absolute;top:14px;right:14px;width:42px;height:42px}
       <a class="bigtel js-tel" href="tel:+33749898635"><span class="js-tel-txt">07 49 89 86 35</span></a>
       <p class="intro">Il passe voir le chantier, prend les mesures et vous laisse un devis gratuit et détaillé.</p>
       <ul class="coords">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg><a class="js-mail" href="mailto:lejointdhelder@gmail.com">lejointdhelder@gmail.com</a></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-6 8-12a8 8 0 10-16 0c0 6 8 12 8 12z"/><circle cx="12" cy="10" r="3"/></svg><span>10 route de Keryeven, 29180 Guengat<br>Intervient dans le Finistère</span></li>
-        <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a4 4 0 00-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8z"/></svg><a class="js-fb" href="#" target="_blank" rel="noopener">Les chantiers en cours sur Facebook</a></li>
+        <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg><a class="js-mail" href="mailto:lejointdhelder@gmail.com">lejointdhelder@gmail.com</a></li>
+        <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-6 8-12a8 8 0 10-16 0c0 6 8 12 8 12z"/><circle cx="12" cy="10" r="3"/></svg><span>10 route de Keryeven, 29180 Guengat<br>Intervient dans le Finistère</span></li>
+        <li><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a4 4 0 00-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8z"/></svg><a class="js-fb" href="#" target="_blank" rel="noopener">Les chantiers en cours sur Facebook</a></li>
       </ul>
     </div>
     <form id="devis" novalidate>
@@ -373,10 +381,10 @@ dialog .sq{position:absolute;top:14px;right:14px;width:42px;height:42px}
       <div><label for="f-tel">Votre téléphone</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" required></div>
       <div><label for="f-ville">Commune du chantier</label><input id="f-ville" name="ville" autocomplete="address-level2"></div>
       <div><label for="f-type">Travaux</label><select id="f-type" name="type"><option>Cloisons</option><option>Doublage ou isolation</option><option>Combles</option><option>Faux plafond</option><option>Bandes et enduits</option><option>Rénovation complète</option><option>Autre</option></select></div>
-      <div class="full"><label for="f-msg">Votre projet</label><textarea id="f-msg" name="msg" placeholder="Pièces concernées, surface approximative, délai souhaité"></textarea></div>
-      <div class="full"><button class="btn btn-call" type="submit">Préparer l'email de demande</button></div>
+      <div class="full"><label for="f-msg">Votre projet</label><textarea id="f-msg" name="msg" placeholder="Ex. : 2 chambres sous combles, environ 30 m², pour le printemps…"></textarea></div>
+      <div class="full"><button class="btn btn-call" type="submit">Préparer l’email de demande</button></div>
       <p class="form-msg" id="formMsg" aria-live="polite"></p>
-      <p class="form-note">Le bouton ouvre votre messagerie avec la demande déjà rédigée. Il ne reste qu'à l'envoyer.</p>
+      <p class="form-note">Le bouton ouvre votre messagerie avec la demande déjà rédigée. Il ne reste qu’à l’envoyer.</p>
     </form>
   </div>
 </section>
@@ -385,30 +393,30 @@ dialog .sq{position:absolute;top:14px;right:14px;width:42px;height:42px}
 <footer>
   <div class="wrap">
     <div class="foot">
-      <img src="photos/logo.png" alt="Le Joint d'Helder" width="110" height="92">
-      <p class="slogan">Placo &amp; joints,<br>c'est du béton !</p>
+      <img src="photos/logo.png" alt="Le Joint d’Helder" width="110" height="92">
+      <p class="slogan" translate="no">Placo &amp; joints,<br>c’est du béton !</p>
       <nav aria-label="Pied de page"><a href="#top">Retour en haut</a><button type="button" id="mlOpen">Mentions légales</button></nav>
     </div>
-    <p class="legal-line">© <span id="yr"></span> Le Joint d'Helder, Helder Gomes EI, SIREN 102 917 291. Site réalisé par BVCréasite.</p>
+    <p class="legal-line">© <span id="yr"></span> Le Joint d’Helder, Helder Gomes EI, SIREN 102 917 291. Site réalisé par BVCréasite.</p>
   </div>
 </footer>
 
 <dialog id="ml" aria-labelledby="mlTitle">
-  <button class="sq" id="mlClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="sq" id="mlClose" aria-label="Fermer"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   <h2 id="mlTitle">Mentions légales</h2>
   <h3>Éditeur du site</h3>
-  <p>Le Joint d'Helder, Helder Gomes EI (entrepreneur individuel)<br>10 route de Keryeven, 29180 Guengat<br>SIREN : 102 917 291<br>Téléphone : 07 49 89 86 35<br>Email : lejointdhelder@gmail.com<br>Directeur de la publication : Helder Gomes</p>
+  <p>Le Joint d’Helder, Helder Gomes EI (entrepreneur individuel)<br>10 route de Keryeven, 29180 Guengat<br>SIREN : 102 917 291<br>Téléphone : 07 49 89 86 35<br>Email : lejointdhelder@gmail.com<br>Directeur de la publication : Helder Gomes</p>
   <h3>Hébergement</h3>
   <p>GitHub Pages, GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
   <h3>Conception</h3>
   <p>Site réalisé par BVCréasite.</p>
   <h3>Propriété intellectuelle</h3>
-  <p>Les textes, photos et le logo de ce site appartiennent au Joint d'Helder. Toute reproduction sans autorisation est interdite.</p>
+  <p>Les textes, photos et le logo de ce site appartiennent au Joint d’Helder. Toute reproduction sans autorisation est interdite.</p>
   <h3>Données personnelles</h3>
   <p>Ce site ne dépose aucun cookie de suivi et ne collecte aucune donnée automatiquement. Le formulaire de devis ouvre votre messagerie : les informations que vous envoyez servent uniquement à répondre à votre demande et ne sont jamais transmises à des tiers. Pour en demander la suppression, écrivez à lejointdhelder@gmail.com.</p>
 </dialog>
 
-<a class="fab js-tel" href="tel:+33749898635" aria-label="Appeler Helder au 07 49 89 86 35"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg>Appeler</a>
+<a class="fab js-tel" href="tel:+33749898635" aria-label="Appeler Helder au 07 49 89 86 35"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg>Appeler</a>
 
 <script>
 /* =========================================================
@@ -424,27 +432,28 @@ const CONFIG = {
   ]
 };
 
-/* Photos du carrousel d'accueil */
+/* Photos du carrousel d’accueil */
+const DIMS = {"escalier-finition.jpg": [1800, 1350], "mur-pierre-ouverture.jpg": [1350, 1800], "tremie-plafond.jpg": [1800, 1350], "cage-escalier-haut.jpg": [1350, 1800], "piece-plaques-jointees.jpg": [1800, 1350], "doublage-poutre.jpg": [1350, 1800], "plafond-rampant.jpg": [1350, 1800], "ossature-mur-pierre.jpg": [1800, 1350], "rampant-joints.jpg": [1800, 1350], "doublage-pierre.jpg": [1350, 1800], "cage-escalier.jpg": [1350, 1800], "combles-joints.jpg": [1800, 1350], "isolation-rampants.jpg": [1350, 1800], "tremie-escalier.jpg": [1800, 1350]};
 const HERO = [
-  ["escalier-finition.jpg","Cage d'escalier rénovée"],
+  ["escalier-finition.jpg","Cage d’escalier rénovée"],
   ["ossature-mur-pierre.jpg","Ossature devant un mur en pierre"],
   ["isolation-rampants.jpg","Isolation des rampants"],
   ["piece-plaques-jointees.jpg","Pièce de vie, bandes terminées"],
-  ["cage-escalier-haut.jpg","Cage d'escalier en plaques"]
+  ["cage-escalier-haut.jpg","Cage d’escalier en plaques"]
 ];
 /* Galerie des chantiers */
 const GALERIE = [
-  ["escalier-finition.jpg","Cage d'escalier"],
+  ["escalier-finition.jpg","Cage d’escalier"],
   ["isolation-rampants.jpg","Isolation des rampants"],
   ["piece-plaques-jointees.jpg","Pièce de vie"],
   ["doublage-pierre.jpg","Doublage et pierre apparente"],
   ["rampant-joints.jpg","Rampant de combles"],
-  ["cage-escalier.jpg","Habillage d'escalier"],
+  ["cage-escalier.jpg","Habillage d’escalier"],
   ["ossature-mur-pierre.jpg","Ossature sur mur pierre"],
-  ["tremie-escalier.jpg","Trémie d'escalier"],
+  ["tremie-escalier.jpg","Trémie d’escalier"],
   ["doublage-poutre.jpg","Doublage sous poutre"],
   ["combles-joints.jpg","Jouée de combles"],
-  ["cage-escalier-haut.jpg","Cage d'escalier"],
+  ["cage-escalier-haut.jpg","Cage d’escalier"],
   ["mur-pierre-ouverture.jpg","Ouverture dans un mur en pierre"]
 ];
 
@@ -462,14 +471,14 @@ mb.onclick=()=>{const o=document.body.classList.toggle("menu-open");mb.setAttrib
 document.querySelectorAll("#menu a").forEach(a=>a.onclick=()=>{document.body.classList.remove("menu-open");mb.setAttribute("aria-expanded",false);mb.textContent="Menu"});
 
 /* ---------- transition « couteau à enduire » ----------
-   La nouvelle photo est révélée par une lame qui balaie l'image
-   en laissant une traînée d'enduit. Réutilisée par le héro et la visionneuse. */
+   La nouvelle photo est révélée par une lame qui balaie l’image
+   en laissant une traînée d’enduit. Réutilisée par le héro et la visionneuse. */
 const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 function Knife(el,items,onChange){
   let i=0,busy=false;
   const blade=document.createElement("div");blade.className="blade";el.appendChild(blade);
   const fig=(k)=>{const f=document.createElement("figure");f.className="pic";
-    f.innerHTML=`<img src="photos/${items[k][0]}" alt=""><figcaption></figcaption>`;
+    const d=DIMS[items[k][0]]||[1800,1350];f.innerHTML=`<img src="photos/${items[k][0]}" alt="" width="${d[0]}" height="${d[1]}"${k===0&&!el.closest(".lb")?' fetchpriority="high"':""}><figcaption></figcaption>`;
     f.querySelector("img").alt=items[k][1];f.querySelector("figcaption").textContent=items[k][1];return f};
   let cur=fig(0);cur.classList.add("under");el.insertBefore(cur,blade);
   function go(n,dir=1){
@@ -494,14 +503,19 @@ function Knife(el,items,onChange){
 (()=>{const el=document.getElementById("heroKnife");
   document.getElementById("heroTot").textContent=HERO.length;
   const k=Knife(el,HERO,i=>document.getElementById("heroNum").textContent=i+1);
-  let t;const auto=()=>{clearTimeout(t);if(!reduce)t=setTimeout(()=>{k.next();auto()},6000)};
-  document.getElementById("heroNext").onclick=()=>{k.next();auto()};
-  document.getElementById("heroPrev").onclick=()=>{k.prev();auto()};
+  let t,paused=reduce;const auto=()=>{clearTimeout(t);if(!paused)t=setTimeout(()=>{k.next();auto()},6000)};
+  const pb=document.getElementById("heroPause");
+  const icoPause='<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+  const icoPlay='<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+  const sync=()=>{pb.innerHTML=paused?icoPlay:icoPause;pb.setAttribute("aria-label",paused?"Reprendre le défilement":"Mettre le défilement en pause");pb.setAttribute("aria-pressed",paused)};
+  pb.onclick=()=>{paused=!paused;sync();paused?clearTimeout(t):auto()};sync();
+  document.getElementById("heroNext").onclick=()=>{k.next();if(!paused)auto()};
+  document.getElementById("heroPrev").onclick=()=>{k.prev();if(!paused)auto()};
   let x0=null;el.addEventListener("touchstart",e=>x0=e.touches[0].clientX,{passive:true});
-  el.addEventListener("touchend",e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>45){d<0?k.next():k.prev();auto()}x0=null});
-  el.addEventListener("mouseenter",()=>clearTimeout(t));el.addEventListener("mouseleave",auto);
+  el.addEventListener("touchend",e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>45){d<0?k.next():k.prev();if(!paused)auto()}x0=null});
+  el.addEventListener("mouseenter",()=>clearTimeout(t));el.addEventListener("mouseleave",()=>{if(!paused)auto()});
   // premier passage de lame au chargement : le seul effet automatique de la page
-  setTimeout(()=>{k.next();auto()},1400);
+  if(!paused)setTimeout(()=>{k.next();auto()},1400);
 })();
 
 /* ---------- avant / après ---------- */
@@ -512,7 +526,7 @@ function Knife(el,items,onChange){
 (()=>{const gal=document.getElementById("gal"),lb=document.getElementById("lb"),cap=document.getElementById("lbCap");
   let k=null,last=null;
   GALERIE.forEach(([f,t],n)=>{const b=document.createElement("button");b.type="button";
-    b.innerHTML=`<img src="photos/${f}" alt="" loading="lazy"><span></span>`;b.querySelector("img").alt=t;b.querySelector("span").textContent=t;
+    const d=DIMS[f]||[1800,1350];b.innerHTML=`<img src="photos/${f}" alt="" width="${d[0]}" height="${d[1]}" loading="lazy"><span></span>`;b.querySelector("img").alt=t;b.querySelector("span").textContent=t;
     b.onclick=()=>open(n);gal.appendChild(b)});
   const upd=i=>cap.textContent=`${GALERIE[i][1]} (${i+1}/${GALERIE.length})`;
   function open(n){last=document.activeElement;lb.classList.add("open");document.body.style.overflow="hidden";
@@ -547,10 +561,10 @@ function Knife(el,items,onChange){
 
 /* ---------- formulaire ---------- */
 document.getElementById("devis").addEventListener("submit",e=>{e.preventDefault();const f=e.target,m=document.getElementById("formMsg");
-  if(!f.nom.value.trim()||!f.tel.value.trim()){m.textContent="Indiquez au moins votre nom et votre téléphone pour qu'Helder puisse vous rappeler.";(f.nom.value.trim()?f.tel:f.nom).focus();return}
+  if(!f.nom.value.trim()||!f.tel.value.trim()){m.textContent="Indiquez au moins votre nom et votre téléphone pour qu’Helder puisse vous rappeler.";(f.nom.value.trim()?f.tel:f.nom).focus();return}
   const body=`Nom : ${f.nom.value}\nTéléphone : ${f.tel.value}\nCommune : ${f.ville.value}\nTravaux : ${f.type.value}\n\n${f.msg.value}`;
   location.href=`mailto:${CONFIG.email}?subject=${encodeURIComponent("Demande de devis : "+f.type.value)}&body=${encodeURIComponent(body)}`;
-  m.textContent=`Votre messagerie s'ouvre avec la demande rédigée. Si rien ne s'ouvre, appelez le ${CONFIG.tel}.`;
+  m.textContent=`Votre messagerie s’ouvre avec la demande rédigée. Si rien ne s’ouvre, appelez le ${CONFIG.tel}.`;
 });
 </script>
 </body>
