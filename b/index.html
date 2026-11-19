@@ -6,10 +6,12 @@
 <title>Le Joint d’Helder – Plaquiste à Guengat · Maquette B</title>
 <meta name="description" content="Le Joint d'Helder, plaquiste à Guengat (29) : rénovation des maisons en pierre, doublage, isolation, combles, bandes et enduits. Devis gratuit au 07 49 89 86 35.">
 <meta name="theme-color" content="#2a3036">
-<link rel="icon" href="../photos/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../photos/logo-160.png">
+<link rel="preload" href="../fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Archivo;src:url(../fonts/archivo.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+</style>
 <link rel="stylesheet" href="../shared/base.css">
 <style>
 :root{--loader-bg:#252a2f;--loader-fill:#f2b705;--loader-seam:rgba(233,228,216,.15);--ardoise:#353c43;--nuit:#252a2f;--lin:#e9e4d8;--lin-2:#c9c4b8;--jaune:#f2b705;--rouge:#c8201b;--ink:#252a2f;--paper:#e9e4d8;--accent:#f2b705;--focus:#f2b705;--lb-radius:4px;--ml-radius:4px}
@@ -148,7 +150,7 @@ footer button{background:none;border:0;color:var(--lin);text-decoration:underlin
 .fab{position:fixed;right:14px;bottom:14px;z-index:60;display:none;box-shadow:0 10px 24px -8px rgba(0,0,0,.6)}
 @media(max-width:860px){.fab{display:inline-flex}}
 body{overflow-x:clip}
-@media(max-width:600px){footer{padding-bottom:84px}.nav .logo{white-space:nowrap}}
+@media(max-width:600px){footer{padding-bottom:84px}.nav .logo{white-space:nowrap}.caption{display:none}.count{white-space:nowrap;margin-right:.3rem}.hero-ui .wrap{justify-content:flex-start}.hero-text{bottom:96px}}
 </style>
 </head>
 <body>
@@ -156,7 +158,7 @@ body{overflow-x:clip}
 
 <header id="hdr">
   <div class="wrap nav">
-    <a class="logo" href="#top" aria-label="Le Joint d’Helder, accueil"><img src="../photos/logo.png" alt="" width="74" height="62"></a>
+    <a class="logo" href="#top" aria-label="Le Joint d’Helder, accueil"><img src="../photos/logo-160.webp" alt="" width="74" height="62"></a>
     <ul data-menu-links>
       <li><a href="#savoir-faire">Savoir-faire</a></li>
       <li><a href="#avant-apres">Avant / après</a></li>
@@ -171,10 +173,10 @@ body{overflow-x:clip}
 <main id="top">
 <section class="hero" data-slider-scope aria-label="Accueil">
   <div class="slides" data-slider data-duration="1800" data-delay="7000" aria-roledescription="carrousel" aria-label="Photos de chantiers">
-    <figure class="slide"><img src="../photos/ossature-mur-pierre.jpg" alt="Ossature posée devant un mur en pierre" width="1800" height="1350" fetchpriority="high"></figure>
-    <figure class="slide"><img src="../photos/escalier-finition.jpg" alt="Cage d’escalier rénovée, pierre et plaques" width="1800" height="1350"></figure>
-    <figure class="slide"><img src="../photos/piece-plaques-jointees.jpg" alt="Pièce de vie lumineuse aux plaques jointées" width="1800" height="1350"></figure>
-    <figure class="slide"><img src="../photos/combles-joints.jpg" alt="Combles en cours de finition" width="1800" height="1350"></figure>
+    <figure class="slide"><img src="../photos/ossature-mur-pierre-1200.webp" srcset="../photos/ossature-mur-pierre-600.webp 600w, ../photos/ossature-mur-pierre-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Ossature posée devant un mur en pierre" width="1800" height="1350" fetchpriority="high"></figure>
+    <figure class="slide"><img src="../photos/escalier-finition-1200.webp" srcset="../photos/escalier-finition-600.webp 600w, ../photos/escalier-finition-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Cage d’escalier rénovée, pierre et plaques" width="1800" height="1350"></figure>
+    <figure class="slide"><img src="../photos/piece-plaques-jointees-1200.webp" srcset="../photos/piece-plaques-jointees-600.webp 600w, ../photos/piece-plaques-jointees-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Pièce de vie lumineuse aux plaques jointées" width="1800" height="1350"></figure>
+    <figure class="slide"><img src="../photos/combles-joints-1200.webp" srcset="../photos/combles-joints-600.webp 600w, ../photos/combles-joints-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Combles en cours de finition" width="1800" height="1350"></figure>
   </div>
   <div class="hero-text" id="contenu" tabindex="-1">
     <div class="wrap">
@@ -217,8 +219,8 @@ body{overflow-x:clip}
     <h2 data-anim>La même pièce, quelques semaines plus tard</h2>
     <p class="sub">Faites glisser pour comparer. La lumière est restée, le froid est parti.</p>
     <div class="ba" data-ba data-anim>
-      <img data-parallax="0.06" src="../photos/ossature-mur-pierre.jpg" alt="Avant : ossature devant le mur en pierre" width="1800" height="1350" loading="lazy">
-      <img data-parallax="0.06" class="after" src="../photos/piece-plaques-jointees.jpg" alt="Après : plaques jointées" width="1800" height="1350" loading="lazy">
+      <img data-parallax="0.06" src="../photos/ossature-mur-pierre-1200.webp" srcset="../photos/ossature-mur-pierre-600.webp 600w, ../photos/ossature-mur-pierre-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Avant : ossature devant le mur en pierre" width="1800" height="1350" loading="lazy">
+      <img data-parallax="0.06" class="after" src="../photos/piece-plaques-jointees-1200.webp" srcset="../photos/piece-plaques-jointees-600.webp 600w, ../photos/piece-plaques-jointees-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Après : plaques jointées" width="1800" height="1350" loading="lazy">
       <span class="line"></span>
       <span class="tag t1">Avant</span><span class="tag t2">Après</span>
       <input type="range" min="0" max="100" value="50" aria-label="Glisser pour comparer avant et après">
@@ -243,13 +245,13 @@ body{overflow-x:clip}
   <div class="wrap">
     <h2 data-anim>Chantiers récents</h2>
     <div class="mosa" data-gallery data-anim>
-      <button type="button" class="big" data-src="../photos/escalier-finition.jpg" data-cap="Cage d’escalier"><img data-parallax="0.08" src="../photos/escalier-finition.jpg" alt="Cage d’escalier" width="1800" height="1350" loading="lazy"><span>Cage d’escalier</span></button>
-      <button type="button" data-src="../photos/doublage-pierre.jpg" data-cap="Doublage et pierre apparente"><img src="../photos/doublage-pierre.jpg" alt="Doublage et pierre apparente" width="1350" height="1800" loading="lazy"><span>Pierre apparente</span></button>
-      <button type="button" data-src="../photos/isolation-rampants.jpg" data-cap="Isolation des rampants"><img src="../photos/isolation-rampants.jpg" alt="Isolation des rampants" width="1350" height="1800" loading="lazy"><span>Isolation</span></button>
-      <button type="button" data-src="../photos/rampant-joints.jpg" data-cap="Rampant de combles"><img src="../photos/rampant-joints.jpg" alt="Rampant de combles" width="1800" height="1350" loading="lazy"><span>Combles</span></button>
-      <button type="button" data-src="../photos/tremie-escalier.jpg" data-cap="Trémie d’escalier"><img src="../photos/tremie-escalier.jpg" alt="Trémie d’escalier" width="1800" height="1350" loading="lazy"><span>Trémie</span></button>
-      <button type="button" class="wide" data-src="../photos/mur-pierre-ouverture.jpg" data-cap="Ouverture dans un mur en pierre"><img data-parallax="0.08" src="../photos/mur-pierre-ouverture.jpg" alt="Ouverture dans un mur en pierre" width="1350" height="1800" loading="lazy"><span>Ouverture dans la pierre</span></button>
-      <button type="button" class="wide" data-src="../photos/cage-escalier.jpg" data-cap="Habillage d’escalier"><img data-parallax="0.08" src="../photos/cage-escalier.jpg" alt="Habillage d’escalier" width="1350" height="1800" loading="lazy"><span>Habillage d’escalier</span></button>
+      <button type="button" class="big" data-src="../photos/escalier-finition-1200.webp" data-cap="Cage d’escalier"><img data-parallax="0.08" src="../photos/escalier-finition-1200.webp" srcset="../photos/escalier-finition-600.webp 600w, ../photos/escalier-finition-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Cage d’escalier" width="1800" height="1350" loading="lazy"><span aria-hidden="true">Cage d’escalier</span></button>
+      <button type="button" data-src="../photos/doublage-pierre-1200.webp" data-cap="Doublage et pierre apparente"><img src="../photos/doublage-pierre-1200.webp" srcset="../photos/doublage-pierre-600.webp 600w, ../photos/doublage-pierre-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Doublage et pierre apparente" width="1350" height="1800" loading="lazy"><span>Pierre apparente</span></button>
+      <button type="button" data-src="../photos/isolation-rampants-1200.webp" data-cap="Isolation des rampants"><img src="../photos/isolation-rampants-1200.webp" srcset="../photos/isolation-rampants-600.webp 600w, ../photos/isolation-rampants-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Isolation des rampants" width="1350" height="1800" loading="lazy"><span>Isolation</span></button>
+      <button type="button" data-src="../photos/rampant-joints-1200.webp" data-cap="Rampant de combles"><img src="../photos/rampant-joints-1200.webp" srcset="../photos/rampant-joints-600.webp 600w, ../photos/rampant-joints-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Rampant de combles" width="1800" height="1350" loading="lazy"><span>Combles</span></button>
+      <button type="button" data-src="../photos/tremie-escalier-1200.webp" data-cap="Trémie d’escalier"><img src="../photos/tremie-escalier-1200.webp" srcset="../photos/tremie-escalier-600.webp 600w, ../photos/tremie-escalier-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Trémie d’escalier" width="1800" height="1350" loading="lazy"><span>Trémie</span></button>
+      <button type="button" class="wide" data-src="../photos/mur-pierre-ouverture-1200.webp" data-cap="Ouverture dans un mur en pierre"><img data-parallax="0.08" src="../photos/mur-pierre-ouverture-1200.webp" srcset="../photos/mur-pierre-ouverture-600.webp 600w, ../photos/mur-pierre-ouverture-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Ouverture dans un mur en pierre" width="1350" height="1800" loading="lazy"><span aria-hidden="true">Ouverture dans la pierre</span></button>
+      <button type="button" class="wide" data-src="../photos/cage-escalier-1200.webp" data-cap="Habillage d’escalier"><img data-parallax="0.08" src="../photos/cage-escalier-1200.webp" srcset="../photos/cage-escalier-600.webp 600w, ../photos/cage-escalier-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Habillage d’escalier" width="1350" height="1800" loading="lazy"><span aria-hidden="true">Habillage d’escalier</span></button>
     </div>
   </div>
 </section>
@@ -276,7 +278,7 @@ body{overflow-x:clip}
 </main>
 
 <footer><div class="wrap"><span>© <span data-year></span> Le Joint d’Helder, Helder Gomes EI, SIREN 102 917 291</span><button type="button" data-ml>Mentions légales</button></div></footer>
-<a class="btn btn-y fab" href="tel:+33749898635" aria-label="Appeler Helder au 07 49 89 86 35">Appeler</a>
+<aside aria-label="Appel rapide"><a class="btn btn-y fab" href="tel:+33749898635" aria-label="Appeler Helder au 07 49 89 86 35">Appeler</a></aside>
 <dialog class="ml" id="ml" aria-labelledby="mlT">
   <button class="ml-x" type="button" data-ml-close aria-label="Fermer"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   <h2 id="mlT">Mentions légales</h2>
