@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le Joint d’Helder – Choisir un site</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2d3337">
+<link rel="icon" href="../photos/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Bricolage Grotesque",system-ui,sans-serif;background:#2d3337;color:#f3f1ec;line-height:1.55}
+.wrap{width:min(1200px,92vw);margin-inline:auto;padding:3rem 0 4rem}
+header{display:flex;align-items:center;gap:1rem;margin-bottom:2.4rem}
+header img{height:72px;width:auto}
+h1{font-weight:800;font-variation-settings:"wdth" 78;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1}
+.intro{color:#c9ccce;max-width:60ch;margin-bottom:2.4rem}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem}
+a.card{display:block;text-decoration:none;color:inherit;background:#232829;border-radius:10px;overflow:hidden;border:2px solid transparent;transition:border-color .2s,transform .2s}
+a.card:hover{border-color:#f2b705;transform:translateY(-3px)}
+a.card:focus-visible{outline:3px solid #f2b705;outline-offset:3px}
+.card img{width:100%;height:auto;aspect-ratio:1440/900;object-fit:cover;display:block}
+.card div{padding:1.1rem 1.2rem 1.3rem}
+.card h2{font-weight:800;font-variation-settings:"wdth" 85;font-size:1.5rem}
+.card p{color:#c9ccce;margin-top:.3rem}
+.card .go{display:inline-block;margin-top:.8rem;color:#f2b705;font-weight:700}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header><img src="../photos/logo.png" alt="" width="86" height="72"><h1>Quel site pour Le Joint d’Helder&nbsp;?</h1></header>
+  <p class="intro">Quatre versions du même site, avec les mêmes photos et les mêmes infos. Ouvrez-les sur téléphone et sur ordinateur, faites défiler, testez les photos et le curseur avant / après, puis choisissez.</p>
+  <div class="grid">
+    <a class="card" href="../"><img src="actuel.jpg" alt="Aperçu du site actuel" width="900" height="563"><div><h2>Version actuelle · Plaque de plâtre</h2><p>Fond gris plaque avec points de vis, transition au couteau à enduire.</p><span class="go">Ouvrir le site</span></div></a>
+    <a class="card" href="../a/"><img src="a.jpg" alt="Aperçu de la maquette A" width="900" height="563"><div><h2>A · Chantier</h2><p>Jaune casque et rouge, le logo en vedette, transition en coup de lame diagonal.</p><span class="go">Ouvrir le site</span></div></a>
+    <a class="card" href="../b/"><img src="b.jpg" alt="Aperçu de la maquette B" width="900" height="563"><div><h2>B · Ardoise</h2><p>Gris ardoise et photos plein écran, fondu lent avec zoom. Plus posé, plus haut de gamme.</p><span class="go">Ouvrir le site</span></div></a>
+    <a class="card" href="../c/"><img src="c.jpg" alt="Aperçu de la maquette C" width="900" height="563"><div><h2>C · Atelier blanc</h2><p>Blanc enduit et typographie noire, les photos se posent en bandes comme des plaques.</p><span class="go">Ouvrir le site</span></div></a>
+  </div>
+</main>
+</body>
+</html>

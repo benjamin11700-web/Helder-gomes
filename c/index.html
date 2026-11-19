@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le Joint d’Helder – Plaquiste à Guengat · Maquette C</title>
+<meta name="description" content="Le Joint d'Helder, plaquiste à Guengat (29) : cloisons, doublages, isolation, combles, faux plafonds, bandes et enduits. Devis gratuit au 07 49 89 86 35.">
+<meta name="theme-color" content="#fbfaf7">
+<link rel="icon" href="../photos/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+:root{--blanc:#fbfaf7;--craie:#f1efe9;--ink:#1d2023;--gris:#4a4f53;--rouge:#c8201b;--paper:#fbfaf7;--accent:#fbfaf7;--focus:#c8201b;--lb-radius:0;--ml-radius:0}
+body{font-family:"Schibsted Grotesk",system-ui,sans-serif;background:var(--blanc);color:var(--ink);font-size:1.0625rem;line-height:1.6}
+.wrap{width:min(1280px,90vw);margin-inline:auto}
+h1,h2{font-weight:900;letter-spacing:-.035em;line-height:.96}
+h2{font-size:clamp(2.4rem,5vw,3.6rem);margin-bottom:2.6rem}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.5rem;font-weight:700;text-decoration:none;border:2px solid var(--ink);transition:background .25s,color .25s}
+.btn svg{width:18px;height:18px}
+.btn-dark{background:var(--ink);color:var(--blanc)}
+.btn-dark:hover{background:var(--rouge);border-color:var(--rouge)}
+.btn-line{color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--blanc)}
+
+header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid #e3e0d8}
+.nav{display:flex;align-items:center;gap:1.6rem;min-height:72px}
+.nav .logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--ink);font-weight:700;font-size:1.1rem;margin-right:auto}
+.nav .logo img{height:46px;width:auto}
+.nav ul{list-style:none;display:flex;gap:1.8rem}
+.nav ul a{color:var(--ink);text-decoration:none}
+.nav ul a:hover{text-decoration:underline;text-decoration-color:var(--rouge);text-decoration-thickness:2px;text-underline-offset:6px}
+.nav .btn{padding:.6rem 1rem}
+.menu-btn{display:none;background:none;border:2px solid var(--ink);padding:.5rem .9rem;font-weight:700;cursor:pointer}
+@media(max-width:900px){.nav ul,.nav .btn{display:none}.menu-btn{display:block}
+  body.menu-open .nav ul{display:flex;flex-direction:column;gap:0;position:absolute;top:72px;left:0;right:0;background:var(--blanc);border-bottom:2px solid var(--ink)}
+  body.menu-open .nav ul a{display:block;padding:1rem 5vw;border-bottom:1px solid #e3e0d8}}
+
+/* héro */
+.hero{padding:clamp(3rem,7vw,5.5rem) 0 clamp(4rem,8vw,6rem)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,5vw,4.5rem);align-items:center}
+.hero h1{font-size:clamp(3rem,6.6vw,6rem)}
+.joint{width:96px;height:6px;background:var(--rouge);margin:2.2rem 0;transform-origin:left;animation:draw 1s .2s cubic-bezier(.7,0,.2,1) both}
+@keyframes draw{from{transform:scaleX(0)}}
+.hero p{font-size:1.2rem;color:var(--gris);max-width:38ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2.2rem}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+
+/* transition C : les plaques se posent une à une (bandes verticales) */
+.panel{position:relative;aspect-ratio:4/4.6;overflow:hidden;background:var(--craie)}
+.slide{position:absolute;inset:0;visibility:hidden}
+.slide.is-active,.slide.is-leaving{visibility:visible}
+.slide.is-active{z-index:2}.slide.is-leaving{z-index:1}
+.strips{position:absolute;inset:0;display:flex}
+.strip{position:relative;flex:1;overflow:hidden;transform:translateY(101%);transition:transform .9s cubic-bezier(.7,0,.2,1)}
+.strip img{position:absolute;top:0;height:100%;width:500%;max-width:none;object-fit:cover}
+[data-dir="prev"] .strip{transform:translateY(-101%)}
+.slide.is-active .strip,.slide.is-leaving .strip{transform:none}
+.slide.is-active .strip:nth-child(2){transition-delay:.08s}
+.slide.is-active .strip:nth-child(3){transition-delay:.16s}
+.slide.is-active .strip:nth-child(4){transition-delay:.24s}
+.slide.is-active .strip:nth-child(5){transition-delay:.32s}
+.slide figcaption{position:absolute;left:0;bottom:0;z-index:3;background:var(--blanc);padding:.5rem .9rem;font-weight:500;font-size:.95rem}
+.panel-ui{display:flex;align-items:center;gap:.5rem;margin-top:1rem}
+.panel-ui .count{margin-right:auto;font-weight:700;font-variant-numeric:tabular-nums}
+.sq{width:46px;height:46px;border:2px solid var(--ink);background:transparent;display:grid;place-items:center;cursor:pointer}
+.sq:hover{background:var(--ink);color:var(--blanc)}
+.sq svg{width:18px;height:18px}
+
+.pad{padding:clamp(4.5rem,9vw,7rem) 0}
+.craie{background:var(--craie)}
+
+/* travaux */
+.trav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3rem 2.5rem}
+.trav div{border-top:2px solid var(--ink);padding-top:1.1rem}
+.trav div.r{border-color:var(--rouge)}
+.trav h3{font-size:1.35rem;margin-bottom:.5rem}
+.trav p{color:var(--gris)}
+@media(max-width:860px){.trav{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.trav{grid-template-columns:1fr}}
+
+/* avant / après */
+.ba{position:relative;aspect-ratio:16/8;overflow:hidden;user-select:none;touch-action:pan-y}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .after{clip-path:inset(0 0 0 var(--p,50%))}
+.ba .line{position:absolute;top:0;bottom:0;left:var(--p,50%);width:6px;transform:translateX(-3px);background:var(--rouge);pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:var(--p,50%);transform:translate(-50%,-50%);width:58px;height:58px;background:var(--blanc);border:2px solid var(--ink);display:grid;place-items:center;pointer-events:none}
+.ba .knob svg{width:24px;height:24px}
+.ba .tag{position:absolute;top:0;background:var(--blanc);font-weight:700;padding:.4rem .8rem}
+.ba .t1{left:0}.ba .t2{right:0;background:var(--ink);color:var(--blanc)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba input:focus-visible ~ .knob{outline:3px solid var(--rouge);outline-offset:3px}
+@media(max-width:600px){.ba{aspect-ratio:4/3.6}}
+
+/* méthode */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem;counter-reset:s}
+.steps li::before{counter-increment:s;content:counter(s);display:block;font-weight:900;font-size:5rem;line-height:1;color:transparent;-webkit-text-stroke:2px var(--ink);margin-bottom:.8rem}
+.steps h3{font-size:1.25rem;margin-bottom:.3rem}
+.steps p{color:var(--gris)}
+@media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* photos */
+.photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.photos button{padding:0;border:0;background:var(--craie);cursor:zoom-in;overflow:hidden;height:380px}
+.photos .w2{grid-column:span 2}
+.photos img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.6,.2,1)}
+.photos button:hover img{transform:scale(1.04)}
+@media(max-width:760px){.photos{grid-template-columns:1fr 1fr}.photos button{height:220px}}
+
+/* contact */
+.contact{background:var(--ink);color:var(--blanc)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact h2{margin-bottom:1rem}
+.contact .sub{color:#c9ccce}
+.tel{display:block;font-weight:900;letter-spacing:-.03em;font-size:clamp(2.4rem,4.6vw,4rem);white-space:nowrap;color:var(--blanc);text-decoration:none;font-variant-numeric:tabular-nums;margin:1.6rem 0 1rem}
+.tel:hover{color:#ff6a5f}
+.contact a{color:var(--blanc)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+form .full{grid-column:1/-1}
+label{display:block;font-size:.9rem;color:#c9ccce;margin-bottom:.35rem}
+input,select,textarea{width:100%;font:inherit;padding:.85rem .9rem;background:#272b2f;color:var(--blanc);border:1px solid #4a4f53;border-radius:0}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blanc)}
+textarea{min-height:110px;resize:vertical}
+.contact .btn-dark{background:var(--blanc);color:var(--ink);border-color:var(--blanc);cursor:pointer}
+.contact .btn-dark:hover{background:var(--rouge);color:#fff;border-color:var(--rouge)}
+.msg{grid-column:1/-1;color:#ff8a80;min-height:1.2em}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+@media(max-width:520px){form{grid-template-columns:1fr}}
+footer{background:var(--ink);color:#9ea3a6;font-size:.9rem;border-top:1px solid #3a3f43}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding:1.4rem 0}
+footer button{background:none;border:0;color:var(--blanc);text-decoration:underline;cursor:pointer}
+.fab{position:fixed;right:14px;bottom:14px;z-index:60;display:none}
+@media(max-width:860px){.fab{display:inline-flex}}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><img src="../photos/logo.png" alt="" width="55" height="46"><span translate="no">Le Joint d’Helder</span></a>
+    <ul data-menu-links>
+      <li><a href="#travaux">Travaux</a></li>
+      <li><a href="#avant-apres">Avant / après</a></li>
+      <li><a href="#photos">Photos</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-dark" href="tel:+33749898635">07 49 89 86 35</a>
+    <button class="menu-btn" data-menu aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<main id="top">
+<span id="contenu" tabindex="-1"></span>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Plaquiste.<br>Bandes, enduits, isolation.</h1>
+      <div class="joint" aria-hidden="true"></div>
+      <p>Helder Gomes travaille seul, du devis au dernier coup de couteau. Guengat et tout le Finistère.</p>
+      <div class="ctas">
+        <a class="btn btn-dark" href="tel:+33749898635"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg>Appeler Helder</a>
+        <a class="btn btn-line" href="#contact">Demander un devis</a>
+      </div>
+    </div>
+    <div data-slider-scope>
+      <div class="panel" data-slider data-duration="1300" aria-roledescription="carrousel" aria-label="Photos de chantiers">
+        <figure class="slide" data-img="../photos/escalier-finition.jpg" data-alt="Cage d’escalier rénovée"><figcaption>Cage d’escalier</figcaption></figure>
+        <figure class="slide" data-img="../photos/rampant-joints.jpg" data-alt="Rampant de combles jointé"><figcaption>Combles</figcaption></figure>
+        <figure class="slide" data-img="../photos/piece-plaques-jointees.jpg" data-alt="Pièce de vie aux bandes terminées"><figcaption>Bandes terminées</figcaption></figure>
+        <figure class="slide" data-img="../photos/cage-escalier-haut.jpg" data-alt="Cage d’escalier en plaques"><figcaption>Cage d’escalier</figcaption></figure>
+      </div>
+      <div class="panel-ui">
+        <span class="count" data-count aria-live="polite">1 / 4</span>
+        <button class="sq" data-pause type="button"></button>
+        <button class="sq" data-prev type="button" aria-label="Photo précédente"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button class="sq" data-next type="button" aria-label="Photo suivante"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad craie" id="travaux">
+  <div class="wrap">
+    <h2>Les travaux</h2>
+    <div class="trav">
+      <div><h3>Cloisons</h3><p>Créer ou redistribuer des pièces, en plaques phoniques ou hydrofuges.</p></div>
+      <div><h3>Doublages</h3><p>Des murs droits devant la pierre, avec ou sans isolant.</p></div>
+      <div><h3>Isolation</h3><p>Murs, rampants et plafonds, avec pare-vapeur continu.</p></div>
+      <div><h3>Combles</h3><p>Rampants et jouées pour gagner une pièce à vivre.</p></div>
+      <div><h3>Faux plafonds</h3><p>Plafonds suspendus, coffrages, trémies d’escalier.</p></div>
+      <div class="r"><h3>Bandes et enduits</h3><p>La spécialité de la maison : des joints qu’on ne voit plus.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="avant-apres">
+  <div class="wrap">
+    <h2>Avant, après</h2>
+    <div class="ba" data-ba>
+      <img src="../photos/ossature-mur-pierre.jpg" alt="Avant : ossature devant le mur en pierre" width="1800" height="1350" loading="lazy">
+      <img class="after" src="../photos/piece-plaques-jointees.jpg" alt="Après : plaques jointées" width="1800" height="1350" loading="lazy">
+      <span class="tag t1">Avant</span><span class="tag t2">Après</span>
+      <span class="line"></span>
+      <input type="range" min="0" max="100" value="50" aria-label="Glisser pour comparer avant et après">
+      <span class="knob"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+    </div>
+  </div>
+</section>
+
+<section class="pad craie" id="methode">
+  <div class="wrap">
+    <h2>La méthode</h2>
+    <ol class="steps">
+      <li><h3>L’ossature</h3><p>Rails et fourrures réglés au laser.</p></li>
+      <li><h3>L’isolation</h3><p>Laine sans tassement, pare-vapeur continu.</p></li>
+      <li><h3>Les plaques</h3><p>Ajustées autour des fenêtres et des poutres.</p></li>
+      <li><h3>Les bandes</h3><p>Bande, enduit, ponçage. Prêt à peindre.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="pad" id="photos">
+  <div class="wrap">
+    <h2>Photos de chantier</h2>
+    <div class="photos" data-gallery>
+      <button type="button" class="w2" data-src="../photos/piece-plaques-jointees.jpg" data-cap="Pièce de vie"><img src="../photos/piece-plaques-jointees.jpg" alt="Pièce de vie aux plaques jointées" width="1800" height="1350" loading="lazy"></button>
+      <button type="button" data-src="../photos/doublage-pierre.jpg" data-cap="Doublage et pierre apparente"><img src="../photos/doublage-pierre.jpg" alt="Doublage et pierre apparente" width="1350" height="1800" loading="lazy"></button>
+      <button type="button" data-src="../photos/isolation-rampants.jpg" data-cap="Isolation des rampants"><img src="../photos/isolation-rampants.jpg" alt="Isolation des rampants" width="1350" height="1800" loading="lazy"></button>
+      <button type="button" class="w2" data-src="../photos/ossature-mur-pierre.jpg" data-cap="Ossature sur mur pierre"><img src="../photos/ossature-mur-pierre.jpg" alt="Ossature devant un mur en pierre" width="1800" height="1350" loading="lazy"></button>
+      <button type="button" data-src="../photos/tremie-escalier.jpg" data-cap="Trémie d’escalier"><img src="../photos/tremie-escalier.jpg" alt="Trémie d’escalier" width="1800" height="1350" loading="lazy"></button>
+      <button type="button" data-src="../photos/cage-escalier.jpg" data-cap="Habillage d’escalier"><img src="../photos/cage-escalier.jpg" alt="Habillage d’escalier" width="1350" height="1800" loading="lazy"></button>
+      <button type="button" data-src="../photos/combles-joints.jpg" data-cap="Jouée de combles"><img src="../photos/combles-joints.jpg" alt="Jouée de combles" width="1800" height="1350" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<section class="pad contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Un devis&nbsp;? Il suffit d’appeler.</h2>
+      <p class="sub">Visite, mesures et devis détaillé, gratuits.</p>
+      <a class="tel" href="tel:+33749898635">07 49 89 86 35</a>
+      <p><a href="mailto:lejointdhelder@gmail.com">lejointdhelder@gmail.com</a><br><span style="color:#c9ccce">10 route de Keryeven, 29180 Guengat</span></p>
+    </div>
+    <form data-devis novalidate>
+      <div><label for="c-nom">Votre nom</label><input id="c-nom" name="nom" autocomplete="name"></div>
+      <div><label for="c-tel">Votre téléphone</label><input id="c-tel" name="tel" type="tel" autocomplete="tel"></div>
+      <div><label for="c-ville">Commune</label><input id="c-ville" name="ville" autocomplete="address-level2"></div>
+      <div><label for="c-type">Travaux</label><select id="c-type" name="type"><option>Cloisons</option><option>Doublage ou isolation</option><option>Combles</option><option>Faux plafond</option><option>Bandes et enduits</option><option>Rénovation complète</option></select></div>
+      <div class="full"><label for="c-msg">Votre projet</label><textarea id="c-msg" name="msg" placeholder="Ex. : refaire les bandes d’un séjour de 35 m²…"></textarea></div>
+      <div class="full"><button class="btn btn-dark" type="submit">Préparer l’email de demande</button></div>
+      <p class="msg" data-msg aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© <span data-year></span> Le Joint d’Helder, Helder Gomes EI, SIREN 102 917 291</span><button type="button" data-ml>Mentions légales</button></div></footer>
+<a class="btn btn-dark fab" href="tel:+33749898635" aria-label="Appeler Helder au 07 49 89 86 35">Appeler</a>
+<dialog class="ml" id="ml" aria-labelledby="mlT">
+  <button class="ml-x" type="button" data-ml-close aria-label="Fermer"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <h2 id="mlT">Mentions légales</h2>
+  <h3>Éditeur du site</h3>
+  <p>Le Joint d’Helder, Helder Gomes EI (entrepreneur individuel)<br>10 route de Keryeven, 29180 Guengat<br>SIREN : 102 917 291<br>Téléphone : 07 49 89 86 35 · Email : lejointdhelder@gmail.com<br>Directeur de la publication : Helder Gomes</p>
+  <h3>Hébergement</h3>
+  <p>GitHub Pages, GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
+  <h3>Conception</h3>
+  <p>Site réalisé par BVCréasite.</p>
+  <h3>Propriété intellectuelle</h3>
+  <p>Les textes, photos et le logo de ce site appartiennent au Joint d’Helder. Toute reproduction sans autorisation est interdite.</p>
+  <h3>Données personnelles</h3>
+  <p>Ce site ne dépose aucun cookie de suivi et ne collecte aucune donnée automatiquement. Le formulaire de devis ouvre votre messagerie : les informations envoyées servent uniquement à répondre à votre demande et ne sont jamais transmises à des tiers. Pour en demander la suppression, écrivez à lejointdhelder@gmail.com.</p>
+</dialog>
+<script>
+/* découpe chaque photo en 5 bandes verticales, comme des plaques posées une à une */
+document.querySelectorAll(".panel .slide").forEach((s,n)=>{
+  const w=document.createElement("div");w.className="strips";
+  for(let i=0;i<5;i++){const st=document.createElement("div");st.className="strip";
+    const im=document.createElement("img");im.src=s.dataset.img;im.alt=i===0?s.dataset.alt:"";if(i>0)im.setAttribute("aria-hidden","true");
+    im.width=1800;im.height=1350;if(n===0)im.fetchPriority="high";im.style.left=(-i*100)+"%";st.appendChild(im);w.appendChild(st)}
+  s.prepend(w);
+});
+</script>
+<script src="../shared/site.js"></script>
+</body>
+</html>
