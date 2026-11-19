@@ -254,6 +254,14 @@ footer a:hover{color:var(--accent)}
 .img-reveal{clip-path:inset(100% 0 0 0);transition:clip-path 1.3s var(--ease)}
 .img-reveal.in{clip-path:inset(0 0 0 0)}
 
+.ml{position:fixed;inset:0;z-index:110;background:rgba(10,11,13,.92);display:flex;align-items:center;justify-content:center;padding:4vw;opacity:0;pointer-events:none;transition:opacity .5s}
+.ml.open{opacity:1;pointer-events:auto}
+.ml-box{position:relative;background:var(--ink-2);border-top:4px solid var(--red);border-radius:18px;max-width:720px;width:100%;max-height:86vh;overflow:auto;padding:clamp(1.6rem,4vw,3rem);transform:translateY(30px);transition:transform .7s var(--ease-out)}
+.ml.open .ml-box{transform:none}
+.ml-box h2{margin-top:0}
+.ml-box h3{font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--accent);margin:1.4rem 0 .4rem}
+.ml-box p{color:var(--muted);font-size:.95rem}
+.ml-close{position:absolute;top:16px;right:16px;width:44px;height:44px}
 .float-call{position:fixed;right:18px;bottom:18px;z-index:45;width:58px;height:58px;border-radius:50%;background:var(--red);color:#fff!important;border:3px solid var(--accent);color:var(--ink);display:none;place-items:center;box-shadow:0 12px 30px -8px rgba(0,0,0,.6)}
 .float-call svg{width:24px;height:24px}
 @media(max-width:700px){.float-call{display:grid}}
@@ -476,9 +484,26 @@ footer a:hover{color:var(--accent)}
 <footer>
   <div class="wrap">
     <span><span class="slogan-band">Placo &amp; joints, c'est du béton !</span> · © <span id="yr"></span> <span data-cfg="nom">Le Joint d'Helder</span><span data-cfg="siret"></span> · Helder Gomes</span>
-    <span><a href="#accueil">Haut de page ↑</a> · Site réalisé par BVCréasite</span>
+    <span><a href="#mentions-legales" id="mlLink">Mentions légales</a> · <a href="#accueil">Haut de page ↑</a> · Site réalisé par BVCréasite</span>
   </div>
 </footer>
+
+<div class="ml" id="ml" role="dialog" aria-modal="true" aria-labelledby="mlTitle">
+  <div class="ml-box">
+    <button class="arrow ml-close" id="mlClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <h2 id="mlTitle">Mentions <em>légales</em></h2>
+    <h3>Éditeur du site</h3>
+    <p>Le Joint d'Helder — Helder Gomes<br>10 route de Keryeven, 29180 Guengat<br>SIREN : 102 917 291<br>Téléphone : 07 49 89 86 35 · Email : lejointdhelder@gmail.com<br>Directeur de la publication : Helder Gomes</p>
+    <h3>Hébergement</h3>
+    <p>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
+    <h3>Conception</h3>
+    <p>Site réalisé par BVCréasite.</p>
+    <h3>Propriété intellectuelle</h3>
+    <p>Les textes, photos et le logo de ce site sont la propriété de Le Joint d'Helder. Toute reproduction sans autorisation est interdite.</p>
+    <h3>Données personnelles</h3>
+    <p>Le site ne dépose aucun cookie de suivi et ne collecte aucune donnée automatiquement. Le formulaire de devis ouvre votre messagerie : les informations envoyées par email servent uniquement à répondre à votre demande et ne sont jamais transmises à des tiers. Vous pouvez demander leur suppression à tout moment à lejointdhelder@gmail.com.</p>
+  </div>
+</div>
 
 <a class="float-call" data-cfg-href="tel" aria-label="Appeler"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg></a>
 
@@ -493,7 +518,7 @@ const CONFIG = {
   tel:      "07 49 89 86 35",
   email:    "lejointdhelder@gmail.com",
   facebook: "https://www.facebook.com/share/1DxRExD9U9/",
-  siret:    "",                              // ex : "SIRET : 123 456 789 00012" (vide = masqué)
+  siret:    "SIREN : 102 917 291",
   // Avis réels uniquement (copiés depuis Google / Facebook). Laisser vide = section masquée.
   avis: [
     // { texte: "…", auteur: "Prénom N.", note: 5 },
@@ -629,6 +654,17 @@ document.querySelectorAll(".rv-up,.img-reveal").forEach(el=>io.observe(el));
     const b=document.createElement("button");b.setAttribute("aria-label","Avis "+(n+1));b.onclick=()=>set(n);dots.appendChild(b)});
   function set(n){k=(n+CONFIG.avis.length)%CONFIG.avis.length;[...st.children].forEach((c,j)=>c.classList.toggle("on",j===k));[...dots.children].forEach((c,j)=>c.classList.toggle("on",j===k));clearTimeout(t);t=setTimeout(()=>set(k+1),6000)}
   set(0);
+})();
+
+/* ---------- Mentions légales ---------- */
+(()=>{const ml=document.getElementById("ml");
+  const open=()=>{ml.classList.add("open");document.body.style.overflow="hidden"};
+  const close=()=>{ml.classList.remove("open");document.body.style.overflow="";if(location.hash==="#mentions-legales")history.replaceState(null,"",location.pathname)};
+  document.getElementById("mlLink").onclick=e=>{e.preventDefault();open()};
+  document.getElementById("mlClose").onclick=close;
+  ml.addEventListener("click",e=>{if(e.target===ml)close()});
+  addEventListener("keydown",e=>{if(e.key==="Escape"&&ml.classList.contains("open"))close()});
+  if(location.hash==="#mentions-legales")open();
 })();
 
 /* ---------- Formulaire devis (ouvre la messagerie) ---------- */
